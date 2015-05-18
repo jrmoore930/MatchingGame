@@ -198,7 +198,14 @@ public class MainActivity extends ActionBarActivity {
             }
             else
             {
-                score -= 200;
+                if(score >=200)
+                {
+                    score -= 200;
+                }
+                else
+                {
+                    score = 0;
+                }
                 layout.setBackgroundColor(Color.RED);
                 final Handler handler = new Handler();
                 handler.postDelayed(new Runnable() {
@@ -257,6 +264,7 @@ public class MainActivity extends ActionBarActivity {
         highScoreView.setText("High Score = "+highScore);
         newGameButton.setVisibility(View.GONE);
         layout.setBackgroundColor(Color.WHITE);
+        scoreText.setTextColor(Color.BLACK);
     }
 
     //Retrieves the universal high score from test file
@@ -328,7 +336,6 @@ public class MainActivity extends ActionBarActivity {
                 {
                     newGameButton.setVisibility(View.VISIBLE);
                 }
-                scoreText.setTextColor(Color.BLACK);
             }
         }, 5000);
     }
